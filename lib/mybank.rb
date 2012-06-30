@@ -14,7 +14,12 @@ class Account
 	end
 
 	def withdraw(amount)
-		@amount -= amount
+		if @amount > amount
+			@amount -= amount
+			true
+		else
+			false 
+		end
 	end	
 end
 
@@ -24,15 +29,16 @@ class Teller
 	end
 	
 	def withdraw(account,amount)
-		account.withdraw(amount)
-		@cash_slot.depense(amount)
+		if account.withdraw(amount)
+			@cash_slot.depense(amount)
+		end
 	end
 end
 
 
 class CashSlot
 	def contents
-		@contents or raise("I am empty")
+		@contents or 0
 	end
 	
 	def depense(amount)

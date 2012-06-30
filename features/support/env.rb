@@ -9,7 +9,6 @@ require 'spork'
  
 Spork.prefork do
   require 'cucumber/rails'
-	require File.join(File.dirname(__FILE__),'..','..','lib','mybank')
 
   # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
   # order to ease the transition to Capybara we set the default here. If you'd
@@ -20,6 +19,8 @@ Spork.prefork do
 end
  
 Spork.each_run do
+	require File.join(File.dirname(__FILE__),'..','..','lib','mybank')
+	
   # By default, any exception happening in your Rails application will bubble up
   # to Cucumber so that your scenario will fail. This is a different from how 
   # your application behaves in the production environment, where an error page will 
