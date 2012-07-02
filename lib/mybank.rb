@@ -1,11 +1,11 @@
-class Account
-	attr_accessor :amount
-	
-	def initialize
+class Account < ActiveRecord::Base
+  attr_accessible :amount
+  
+  def initialize
 		@amount = 0
 	end
 	
-	def deposit(amount)
+	def credit(amount)
 		@amount = amount
 	end
 	
@@ -13,7 +13,7 @@ class Account
 		@amount
 	end
 
-	def withdraw(amount)
+	def debit(amount)
 		if @amount > amount
 			@amount -= amount
 			true
@@ -23,15 +23,20 @@ class Account
 	end	
 end
 
+
 class Teller
 	def initialize(cash_slot)
 		@cash_slot = cash_slot
 	end
 	
 	def withdraw(account,amount)
-		if account.withdraw(amount)
+		if account.debit(amount)
 			@cash_slot.depense(amount)
 		end
+	end
+	
+	def withdraw_form(account,amount)
+		MyAccount::UserInterface.new.withdraw_from(account,amount)
 	end
 end
 

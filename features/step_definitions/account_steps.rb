@@ -1,8 +1,8 @@
-Given /^I have deposited (#{CASH_AMOUNT}) in my account$/ do |amount|  
-  account.deposit(amount)
+Given /^I have credited (#{CASH_AMOUNT}) in my account$/ do |amount|  
+  account.credit(amount)
   account.balance.should eq(amount), "Expected the balance to be #{amount} but it was #{account.balance}"
 end
 
-Then /^I should see error message 'insuffient amount'$/ do
-  pending
+Then /^the balance of amount should be (#{CASH_AMOUNT})$/ do |amount|
+  account.balance.should eq(amount), "Incorrect balance amount"
 end

@@ -1,0 +1,5 @@
+%fieldset
+  %legend Account
+  = simple_form_for :account, url: withdraw_url do |f|
+    = f.input "amount"
+    = f.button :submit, "withdraw"
