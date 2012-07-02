@@ -1,0 +1,9 @@
+= simple_form_for :searches, html: {method: :get} do |f|
+  %fieldset
+    %legend Search
+    =f.input 'query'
+    =f.button :submit, 'search'
+%ol.results  
+  - @messages. each do |message|
+    %li 
+      =link_to message.content, [message.user,message]
