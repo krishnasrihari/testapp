@@ -16,11 +16,6 @@ Spork.prefork do
   # steps to use the XPath syntax.
   Capybara.default_selector = :css
 
-end
- 
-Spork.each_run do
-	require File.join(File.dirname(__FILE__),'..','..','lib','mybank')
-	
   # By default, any exception happening in your Rails application will bubble up
   # to Cucumber so that your scenario will fail. This is a different from how 
   # your application behaves in the production environment, where an error page will 
@@ -67,5 +62,9 @@ Spork.each_run do
   # The :transaction strategy is faster, but might give you threading problems.
   # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
   Cucumber::Rails::Database.javascript_strategy = :truncation
-
+end
+ 
+Spork.each_run do
+	require File.join(File.dirname(__FILE__),'..','..','lib','mybank')
+	FactoryGirl.reload
 end
