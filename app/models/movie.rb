@@ -1,4 +1,6 @@
 class Movie < ActiveRecord::Base
+	has_and_belongs_to_many :genres
+	
   attr_accessible :showtime_date, :showtime_time
   
   def showtime

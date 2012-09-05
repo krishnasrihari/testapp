@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120705100155) do
+ActiveRecord::Schema.define(:version => 20120709090302) do
+
+  create_table "genres", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "movie_id"
+  end
+
+  create_table "genres_movies", :id => false, :force => true do |t|
+    t.integer  "genre_id"
+    t.integer  "movie_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "messages", :force => true do |t|
     t.text     "content"
@@ -25,6 +39,8 @@ ActiveRecord::Schema.define(:version => 20120705100155) do
     t.time     "showtime_time"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "name"
+    t.string   "release"
   end
 
   create_table "users", :force => true do |t|

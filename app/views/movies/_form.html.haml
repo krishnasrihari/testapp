@@ -1,0 +1,10 @@
+= form_for @movie do |f|
+	= f.label "Name"
+	= f.text_field :name
+	= f.label "Release Year"
+	= f.select :release, (1975..2012).to_a.map(&:to_s)
+	- @genres.each do |g|
+		= check_box_tag "genres[]", g.id, :id => "genres_#{g.id}"
+		= g.name
+	.actions
+		= f.submit 'Save'

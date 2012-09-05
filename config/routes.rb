@@ -4,6 +4,7 @@ Mycucumber::Application.routes.draw do
 	resources :users do
 		resources :messages
 	end
+	resources :movies
 	resource :search, :only => :show
 	root to: "welcome#index"
 end
