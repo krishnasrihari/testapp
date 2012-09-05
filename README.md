@@ -1,4 +1,2 @@
-mycucumber
+test application
 ==========
-
-Cucumber Exampler
