@@ -27,21 +27,6 @@ gem 'simple_form'
 gem 'country_select'
 gem "haml-rails"
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
-
 group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
@@ -52,10 +37,81 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'guard', require: false
   gem 'spork', '> 0.9.0.rc', require: false
-  gem 'guard-spork', require: false
-  gem 'guard-rspec', require: false
-  gem 'guard-cucumber', require: false
-  gem 'guard-jasmine'
   gem "launchy", require: false
+  gem 'spork'
+  gem 'capybara'
+
+  gem 'mocha'
+  gem 'debugger'
+  gem 'bullet'
+  gem 'haml-rails'
+  gem 'guard-livereload'
+  gem 'annotate'
+
+  gem "fuubar"
+  gem "simplecov", require: false
+  gem "jasminerice"
+  gem "guard"
+  gem 'guard-spork', require: false
+  gem "guard-cucumber", require: false
+	gem "guard-rspec", require: false
+	gem 'guard-jasmine-headless-webkit', require: false  
 end
 
+
+gem 'twitter-bootstrap-rails', '2.0.2'
+gem 'jquery-rails', '>= 1.0.12'
+gem 'therubyracer', :platform => :ruby
+
+group :test do
+gem 'shoulda-matchers'
+end
+
+group :development do
+	gem 'brakeman'	
+	gem 'quiet_assets'
+	gem 'bullet'
+end
+
+group :profile do
+	gem 'rack-mini-profiler'
+end
+
+
+# Use unicorn as the app server
+gem 'unicorn'
+
+gem "foursquare2"
+gem "omniauth-facebook"
+gem "koala"
+
+gem "rabl"
+gem "yajl-ruby"
+
+gem "rmagick"
+gem "exifr"
+gem 'carrierwave'
+gem "fog", "~> 1.3.1"
+gem "fancybox-rails"
+
+
+gem "draper"
+gem "devise"
+gem "devise-encryptable"
+gem "kaminari"
+gem 'acts-as-taggable-on'
+gem "simple_form"
+gem 'delayed_job_active_record'
+gem 'daemons'
+gem 'newrelic_rpm'
+gem 'open4'
+gem 'exception_notification'
+gem 'jquery-fileupload-rails'
+gem 'pg_search'
+gem 'thin'
+
+
+
+gem 'whenever'
+
+gem 'sidekiq'
